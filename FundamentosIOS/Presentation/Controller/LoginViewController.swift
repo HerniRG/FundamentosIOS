@@ -8,11 +8,15 @@
 import UIKit
 
 class LoginViewController: UIViewController {
-
+    
+        
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
+     
     }
-
+    
+    @IBAction func loginButton(_ sender: Any) {
+        let heroesViewController = HeroesViewController()
+        self.show(heroesViewController, sender: self)
+    }
 }

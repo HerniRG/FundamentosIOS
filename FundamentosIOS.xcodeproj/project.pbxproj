@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661A334E2C9340ED00924928 /* HeroesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661A334C2C9340ED00924928 /* HeroesViewController.swift */; };
+		661A334F2C9340ED00924928 /* HeroesViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 661A334D2C9340ED00924928 /* HeroesViewController.xib */; };
 		66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5942C921F61007DFA87 /* AppDelegate.swift */; };
 		66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5962C921F61007DFA87 /* SceneDelegate.swift */; };
 		66F8F59E2C921F62007DFA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F8F59D2C921F62007DFA87 /* Assets.xcassets */; };
@@ -16,6 +18,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661A334C2C9340ED00924928 /* HeroesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesViewController.swift; sourceTree = "<group>"; };
+		661A334D2C9340ED00924928 /* HeroesViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesViewController.xib; sourceTree = "<group>"; };
 		66F8F5912C921F61007DFA87 /* FundamentosIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FundamentosIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F8F5942C921F61007DFA87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66F8F5962C921F61007DFA87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				66F8F5AC2C922076007DFA87 /* LoginViewController.swift */,
+				661A334C2C9340ED00924928 /* HeroesViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -95,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				66F8F5AD2C922076007DFA87 /* LoginViewController.xib */,
+				661A334D2C9340ED00924928 /* HeroesViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 			files = (
 				66F8F59E2C921F62007DFA87 /* Assets.xcassets in Resources */,
 				66F8F5A12C921F62007DFA87 /* Base in Resources */,
+				661A334F2C9340ED00924928 /* HeroesViewController.xib in Resources */,
 				66F8F5AF2C922076007DFA87 /* LoginViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +179,7 @@
 			files = (
 				66F8F5AE2C922076007DFA87 /* LoginViewController.swift in Sources */,
 				66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */,
+				661A334E2C9340ED00924928 /* HeroesViewController.swift in Sources */,
 				66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
