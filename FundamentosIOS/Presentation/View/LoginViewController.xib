@@ -11,8 +11,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="FundamentosIOS" customModuleProvider="target">
             <connections>
-                <outlet property="emailTextField" destination="j1a-U3-6m4" id="RHh-vz-DP2"/>
-                <outlet property="passwordTextField" destination="FJ5-Q5-CYQ" id="eBI-Ta-fGg"/>
+                <outlet property="emailTextField" destination="j1a-U3-6m4" id="Uuz-mf-Rfo"/>
+                <outlet property="passwordTextField" destination="FJ5-Q5-CYQ" id="598-qC-P8V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -48,7 +48,7 @@
                                         <color key="baseBackgroundColor" systemColor="systemYellowColor"/>
                                     </buttonConfiguration>
                                     <connections>
-                                        <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="Eac-9g-cJS"/>
+                                        <action selector="loginButton:" destination="-1" eventType="touchUpInside" id="kUk-AK-cXy"/>
                                     </connections>
                                 </button>
                             </subviews>
