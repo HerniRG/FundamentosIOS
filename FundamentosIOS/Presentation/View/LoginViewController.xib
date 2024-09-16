@@ -61,6 +61,7 @@
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemIndigoColor"/>
+            <color key="tintColor" systemColor="systemIndigoColor"/>
             <constraints>
                 <constraint firstItem="SFm-xb-Cz2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="MDs-ug-WN1"/>
                 <constraint firstAttribute="bottom" secondItem="SFm-xb-Cz2" secondAttribute="bottom" id="hCI-0i-tno"/>
@@ -74,7 +75,7 @@
         <image name="background" width="339" height="440"/>
         <image name="title" width="787" height="136"/>
         <systemColor name="systemIndigoColor">
-            <color red="0.34509803919999998" green="0.33725490200000002" blue="0.83921568629999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

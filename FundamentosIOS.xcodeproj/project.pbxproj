@@ -13,6 +13,8 @@
 		66CDAA8A2C9478BE006F309D /* HeroesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDAA882C9478BE006F309D /* HeroesTableViewCell.swift */; };
 		66CDAA8B2C9478BE006F309D /* HeroesTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CDAA892C9478BE006F309D /* HeroesTableViewCell.xib */; };
 		66CDAA8E2C94822C006F309D /* UIImageView+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDAA8D2C94822C006F309D /* UIImageView+Remote.swift */; };
+		66CF9CC02C986F2F00705665 /* HeroDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CF9CBF2C986F2F00705665 /* HeroDetailsViewController.xib */; };
+		66CF9CC12C986F2F00705665 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF9CBE2C986F2F00705665 /* HeroDetailsViewController.swift */; };
 		66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5942C921F61007DFA87 /* AppDelegate.swift */; };
 		66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5962C921F61007DFA87 /* SceneDelegate.swift */; };
 		66F8F59E2C921F62007DFA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F8F59D2C921F62007DFA87 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		66CDAA882C9478BE006F309D /* HeroesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewCell.swift; sourceTree = "<group>"; };
 		66CDAA892C9478BE006F309D /* HeroesTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesTableViewCell.xib; sourceTree = "<group>"; };
 		66CDAA8D2C94822C006F309D /* UIImageView+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Remote.swift"; sourceTree = "<group>"; };
+		66CF9CBE2C986F2F00705665 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
+		66CF9CBF2C986F2F00705665 /* HeroDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailsViewController.xib; sourceTree = "<group>"; };
 		66F8F5912C921F61007DFA87 /* FundamentosIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FundamentosIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F8F5942C921F61007DFA87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66F8F5962C921F61007DFA87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +114,7 @@
 			children = (
 				66F8F5AC2C922076007DFA87 /* LoginViewController.swift */,
 				66CDAA822C944044006F309D /* HeroesTableViewController.swift */,
+				66CF9CBE2C986F2F00705665 /* HeroDetailsViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -121,6 +126,7 @@
 				66CDAA832C944044006F309D /* HeroesTableViewController.xib */,
 				66CDAA882C9478BE006F309D /* HeroesTableViewCell.swift */,
 				66CDAA892C9478BE006F309D /* HeroesTableViewCell.xib */,
+				66CF9CBF2C986F2F00705665 /* HeroDetailsViewController.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -188,6 +194,7 @@
 				66F8F5A12C921F62007DFA87 /* Base in Resources */,
 				66F8F5AF2C922076007DFA87 /* LoginViewController.xib in Resources */,
 				66CDAA852C944044006F309D /* HeroesTableViewController.xib in Resources */,
+				66CF9CC02C986F2F00705665 /* HeroDetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +210,7 @@
 				66CDAA8A2C9478BE006F309D /* HeroesTableViewCell.swift in Sources */,
 				66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */,
 				66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */,
+				66CF9CC12C986F2F00705665 /* HeroDetailsViewController.swift in Sources */,
 				66CDAA842C944044006F309D /* HeroesTableViewController.swift in Sources */,
 				66CDAA872C944E97006F309D /* HeroModel.swift in Sources */,
 			);

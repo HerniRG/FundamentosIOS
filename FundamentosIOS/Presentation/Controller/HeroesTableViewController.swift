@@ -8,13 +8,13 @@
 import UIKit
 
 final class HeroesTableViewController: UITableViewController {
-
+    
     // MARK: - Table View DataSource
     typealias DataSource = UITableViewDiffableDataSource<Int, Hero>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Hero>
     
     // MARK: - Model
-    private let heroes: [Hero] = [
+    let heroes: [Hero] = [
         Hero(id: "1", description: "Saiyan Warrior", name: "Goku", photo: URL(string: "https://cdn.alfabetajuega.com/alfabetajuega/2020/12/goku1.jpg?width=300")!, favorite: true),
         Hero(id: "2", description: "Prince of all Saiyans", name: "Vegeta", photo: URL(string: "https://cdn.alfabetajuega.com/alfabetajuega/2020/12/vegetita.jpg?width=300")!, favorite: false),
         Hero(id: "3", description: "Goku's best friend", name: "Krillin", photo: URL(string: "https://cdn.alfabetajuega.com/alfabetajuega/2020/08/Krilin.jpg?width=300")!, favorite: true),
@@ -42,8 +42,15 @@ final class HeroesTableViewController: UITableViewController {
         applyInitialSnapshot()
     }
     
-    // MARK: - UI Configuration
+    // MARK: - Logout Action
     
+    @objc func logout() {
+        UserDefaults.standard.removeObject(forKey: "authToken")
+        let loginViewController = LoginViewController()
+        navigationController?.setViewControllers([loginViewController], animated: true)
+    }
+    
+    // MARK: - UI Configuration
     private func configureNavigationBar() {
         title = "Dragon Ball"
         navigationController?.navigationBar.prefersLargeTitles = true
@@ -55,7 +62,14 @@ final class HeroesTableViewController: UITableViewController {
         
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        let logoutIcon = UIImage(systemName: "arrow.uturn.left.circle")
+        let logoutButton = UIBarButtonItem(image: logoutIcon, style: .plain, target: self, action: #selector(logout))
+        logoutButton.tintColor = UIColor.label
+        
+        navigationItem.rightBarButtonItem = logoutButton
     }
+
     
     private func configureTableView() {
         tableView.backgroundColor = UIColor.systemOrange
@@ -83,5 +97,14 @@ final class HeroesTableViewController: UITableViewController {
 extension HeroesTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
+    }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let selectedHero = dataSource?.itemIdentifier(for: indexPath) else { return }
+        let detailViewController = HeroDetailsViewController()
+        detailViewController.hero = selectedHero
+        
+        // Navegar a la vista de detalle
+        navigationController?.pushViewController(detailViewController, animated: true)
     }
 }
