@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="descriptionHeroLabel" destination="zyS-DH-2FK" id="aZJ-ut-4jn"/>
                 <outlet property="heroImage" destination="cWA-sx-PCx" id="ALT-sn-83z"/>
+                <outlet property="transformacionesButton" destination="uaG-bB-EDc" id="MOM-sF-pJ3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -32,7 +33,7 @@
                                         <constraint firstAttribute="height" constant="250" id="JSj-8v-XLn"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desciption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-DH-2FK">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desciption" textAlignment="justified" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-DH-2FK">
                                     <rect key="frame" x="0.0" y="266" width="382" height="20.333333333333314"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>

@@ -18,29 +18,25 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="N1T-fd-RSr">
-                        <rect key="frame" x="8" y="8" width="448" height="241"/>
+                        <rect key="frame" x="8" y="8" width="624" height="241"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="jfn-9m-9ac">
-                                <rect key="frame" x="16" y="16" width="416" height="209"/>
+                                <rect key="frame" x="16" y="16" width="592" height="209"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8iJ-kx-RHe">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="209"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="200" id="LVr-B3-bmW"/>
-                                            <constraint firstAttribute="height" constant="120" id="ZlP-jI-d2i"/>
-                                        </constraints>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="209"/>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="pIw-bA-rjg">
-                                        <rect key="frame" x="216" y="0.0" width="200" height="209"/>
+                                        <rect key="frame" x="304" y="0.0" width="288" height="209"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Heroe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9t-IK-Olv">
-                                                <rect key="frame" x="0.0" y="0.0" width="200" height="33.666666666666664"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="288" height="33.666666666666664"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Descripción del super heroe" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sHu-8U-9zo">
-                                                <rect key="frame" x="0.0" y="41.666666666666671" width="200" height="167.33333333333331"/>
+                                                <rect key="frame" x="0.0" y="41.666666666666671" width="288" height="167.33333333333331"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
