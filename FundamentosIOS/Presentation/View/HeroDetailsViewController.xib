@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -17,23 +17,23 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9fp-gz-Mj7">
-                    <rect key="frame" x="0.0" y="59" width="393" height="693"/>
+                    <rect key="frame" x="0.0" y="44" width="414" height="752"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="vYa-nv-u7V">
-                            <rect key="frame" x="16" y="16" width="361" height="286.33333333333331"/>
+                            <rect key="frame" x="16" y="16" width="382" height="286.33333333333331"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="cWA-sx-PCx">
-                                    <rect key="frame" x="0.0" y="0.0" width="361" height="250"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="382" height="250"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="250" id="JSj-8v-XLn"/>
                                     </constraints>
                                 </imageView>
                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Desciption" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyS-DH-2FK">
-                                    <rect key="frame" x="0.0" y="266" width="361" height="20.333333333333314"/>
+                                    <rect key="frame" x="0.0" y="266" width="382" height="20.333333333333314"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <nil key="textColor"/>
                                     <nil key="highlightedColor"/>
@@ -52,7 +52,7 @@
                     <viewLayoutGuide key="frameLayoutGuide" id="vSM-nQ-p6D"/>
                 </scrollView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uaG-bB-EDc">
-                    <rect key="frame" x="16" y="768" width="361" height="50"/>
+                    <rect key="frame" x="16" y="812" width="382" height="50"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="wPc-SZ-XMC"/>
                     </constraints>
@@ -78,7 +78,7 @@
                 <constraint firstItem="uaG-bB-EDc" firstAttribute="top" secondItem="9fp-gz-Mj7" secondAttribute="bottom" constant="16" id="lU5-Su-HCZ"/>
                 <constraint firstItem="uaG-bB-EDc" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="16" id="rRQ-cf-TIj"/>
             </constraints>
-            <point key="canvasLocation" x="130.53435114503816" y="-11.267605633802818"/>
+            <point key="canvasLocation" x="168" y="120"/>
         </view>
     </objects>
     <resources>

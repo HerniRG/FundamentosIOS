@@ -34,22 +34,24 @@ final class LoginViewController: UIViewController {
     }
 }
 
+// MARK: - UI Configuration
 extension LoginViewController {
     
-    // MARK: - UI Configuration
     private func configureUI() {
         emailTextField.placeholder = "Enter your email"
         passwordTextField.placeholder = "Enter your password"
     }
     
-    // MARK: - Error Handling
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
+}
+
+// MARK: - Validation
+extension LoginViewController {
     
-    // MARK: - Validation
     private func validateFields() -> String? {
         var errorMessage: [String] = []
         
@@ -61,9 +63,11 @@ extension LoginViewController {
         }
         return errorMessage.isEmpty ? nil : errorMessage.joined(separator: "\n")
     }
+}
+
+// MARK: - Networking: Login Process
+extension LoginViewController {
     
-    
-    // MARK: - Login Process
     private func login() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
@@ -103,7 +107,6 @@ extension LoginViewController {
         }.resume()
     }
     
-    // MARK: - Save Token and Navigate
     private func saveTokenAndNavigate(token: String) {
         print("Token recibido: \(token)")
         UserDefaults.standard.set(token, forKey: "token")
@@ -113,8 +116,11 @@ extension LoginViewController {
             self.navigationController?.setViewControllers([heroesViewController], animated: true)
         }
     }
+}
+
+// MARK: - Helpers
+extension LoginViewController {
     
-    // MARK: - Helpers
     private func clearFieldsAndShowError(message: String) {
         emailTextField.text = ""
         passwordTextField.text = ""

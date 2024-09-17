@@ -8,9 +8,10 @@
 import Foundation
 
 
-struct Hero: Decodable, Hashable {
-    
-    let id, description, name : String
-    let photo: URL
+struct Hero: Codable, Hashable {
+    let id: String
+    let name: String
+    let description: String
+    let photo: String
     let favorite: Bool
 }

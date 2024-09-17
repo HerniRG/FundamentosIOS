@@ -28,7 +28,7 @@ class HeroesTableViewCell: UITableViewCell {
         // Asignamos las propiedades del modelo Hero a los componentes de la celda
         heroTitleLabel.text = hero.name
         heroDescriptionLabel.text = hero.description
-        heroImageView.setImage(url: hero.photo)
+        heroImageView.setImage(from: hero.photo)
     }
     
 }

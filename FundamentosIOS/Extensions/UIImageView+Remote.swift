@@ -9,8 +9,14 @@
 import UIKit
 
 extension UIImageView {
-    func setImage(url: URL) {
-        // Capturamos self para no crear dependencias circulares
+    func setImage(from urlString: String) {
+        // Intentar convertir el string en URL
+        guard let url = URL(string: urlString) else {
+            print("URL inválida: \(urlString)")
+            return
+        }
+        
+        // Llamamos al método para descargar la imagen
         downloadWithURLSession(url: url) { [weak self] image in
             DispatchQueue.main.async {
                 self?.image = image
@@ -18,17 +24,15 @@ extension UIImageView {
         }
     }
     
-    // Este metodo obtiene una imagen a partir
-    // de una URL. Utiliza URLSession para ello
+    // Este método obtiene una imagen a partir de una URL utilizando URLSession
     private func downloadWithURLSession(
         url: URL,
         completion: @escaping (UIImage?) -> Void
     ) {
-        // No voy a manejar errores para simplificar el ejercicio
-        URLSession.shared.dataTask(with: URLRequest(url: url)) { data, _, _ in
+        // No manejamos errores para simplificar el ejercicio
+        URLSession.shared.dataTask(with: url) { data, _, _ in
             guard let data, let image = UIImage(data: data) else {
-                // No puedo desempaquetar data ni la imagen
-                // llamo al completion con nil
+                // Si no se puede desempaquetar la data o la imagen
                 completion(nil)
                 return
             }
@@ -37,3 +41,4 @@ extension UIImageView {
         .resume()
     }
 }
+

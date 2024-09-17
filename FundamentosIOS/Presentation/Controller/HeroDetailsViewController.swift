@@ -9,6 +9,7 @@ import UIKit
 
 class HeroDetailsViewController: UIViewController {
     
+    // MARK: - Properties
     var hero: Hero?
    
     // MARK: - IBOutlets
@@ -20,13 +21,14 @@ class HeroDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
-        configureUITextAndImage()
+        configureHeroDetails()
     }
     
     // MARK: - UI Configuration
     private func configureNavigationBar() {
         title = hero?.name
         navigationController?.navigationBar.prefersLargeTitles = true
+        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.systemIndigo
@@ -36,11 +38,12 @@ class HeroDetailsViewController: UIViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
     
-    private func configureUITextAndImage() {
+    private func configureHeroDetails() {
+        guard let hero = hero else { return }
+        descriptionHeroLabel.text = hero.description
         heroImage.layer.borderWidth = 2
         heroImage.layer.cornerRadius = 10
-        descriptionHeroLabel.text = hero?.description
-        heroImage.setImage(url: hero!.photo)
+        heroImage.setImage(from: hero.photo)
     }
     
     // MARK: - Actions    
