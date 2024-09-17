@@ -24,6 +24,18 @@ final class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    // MARK: - Actions
+    @IBAction func loginButton(_ sender: Any) {
+        guard let errorMessage = validateFields() else {
+            login()
+            return
+        }
+        showAlert(message: errorMessage)
+    }
+}
+
+extension LoginViewController {
+    
     // MARK: - UI Configuration
     private func configureUI() {
         emailTextField.placeholder = "Enter your email"
@@ -37,70 +49,75 @@ final class LoginViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
     
-    
-    // MARK: - Actions
-    @IBAction func loginButton(_ sender: Any) {
-        // Obtener los textos de los campos
-        let email = emailTextField.text ?? ""
-        let password = passwordTextField.text ?? ""
-        
+    // MARK: - Validation
+    private func validateFields() -> String? {
         var errorMessage: [String] = []
         
-        if email.isEmpty {
+        if let email = emailTextField.text, email.isEmpty {
             errorMessage.append("Email is empty")
         }
-        if password.isEmpty {
+        if let password = passwordTextField.text, password.isEmpty {
             errorMessage.append("Password is empty")
         }
-        if !errorMessage.isEmpty {
-            showAlert(message: errorMessage.joined(separator: "\n"))
+        return errorMessage.isEmpty ? nil : errorMessage.joined(separator: "\n")
+    }
+    
+    
+    // MARK: - Login Process
+    private func login() {
+        guard let email = emailTextField.text, let password = passwordTextField.text else { return }
+        
+        guard let url = URL(string: "https://dragonball.keepcoding.education/api/auth/login") else {
+            showAlert(message: "Invalid URL")
             return
         }
         
-        login(email: email, password: password)
-    }
-    
-    func login(email: String, password: String) {
-        let url = URL(string: "https://dragonball.keepcoding.education/api/auth/login")!
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         
         let loginString = "\(email):\(password)"
         guard let loginData = loginString.data(using: .utf8) else {
-            print("Error al codificar las credenciales")
+            showAlert(message: "Error encoding credentials")
             return
         }
         
         let base64LoginString = loginData.base64EncodedString()
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
-        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
-            guard let data = data, error == nil else {
-                print("Error en la petición: \(error?.localizedDescription ?? "Desconocido")")
+        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
+            guard let self = self else { return }
+            guard let data = data, error == nil, let httpResponse = response as? HTTPURLResponse else {
+                DispatchQueue.main.async {
+                    self.clearFieldsAndShowError(message: "Login failed. Please try again.")
+                }
                 return
             }
             
-            if let httpResponse = response as? HTTPURLResponse, httpResponse.statusCode == 200 {
-                if let token = String(data: data, encoding: .utf8) {
-                    print("Token recibido: \(token)")
-                    UserDefaults.standard.set(token, forKey: "token")
-                    
-                    DispatchQueue.main.async {
-                        let heroesViewController = HeroesTableViewController()
-                        self.navigationController?.setViewControllers([heroesViewController], animated: true)
-                    }
-                } else {
-                    print("Error: No se pudo convertir la respuesta en texto")
-                }
+            if httpResponse.statusCode == 200, let token = String(data: data, encoding: .utf8) {
+                self.saveTokenAndNavigate(token: token)
             } else {
                 DispatchQueue.main.async {
-                    self.emailTextField.text = ""
-                    self.passwordTextField.text = ""
-                    self.showAlert(message: "Incorrect login")
+                    self.clearFieldsAndShowError(message: "Incorrect login")
                 }
             }
-        }
+        }.resume()
+    }
+    
+    // MARK: - Save Token and Navigate
+    private func saveTokenAndNavigate(token: String) {
+        print("Token recibido: \(token)")
+        UserDefaults.standard.set(token, forKey: "token")
         
-        task.resume()
+        DispatchQueue.main.async {
+            let heroesViewController = HeroesTableViewController()
+            self.navigationController?.setViewControllers([heroesViewController], animated: true)
+        }
+    }
+    
+    // MARK: - Helpers
+    private func clearFieldsAndShowError(message: String) {
+        emailTextField.text = ""
+        passwordTextField.text = ""
+        showAlert(message: message)
     }
 }
