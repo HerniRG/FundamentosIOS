@@ -13,8 +13,6 @@ Este proyecto es una aplicación que consume una API de Dragon Ball creada por K
 
 ### Capturas de pantalla:
 
-#### Pantalla de Login:
-
 <div style="display: flex; flex-direction: row;">
   <img src="https://live.staticflickr.com/65535/54004644084_b80717f34f_o.png" width="200" />
   <img src="https://live.staticflickr.com/65535/54004319226_1a94812cc6_o.png" width="200" />
