@@ -14,19 +14,14 @@ Este proyecto es una aplicación que consume una API de Dragon Ball creada por K
 ### Capturas de pantalla:
 
 #### Pantalla de Login:
-![Login](https://live.staticflickr.com/65535/54004644084_b80717f34f_o.png)
 
-#### Lista de Héroes:
-![Héroes](https://live.staticflickr.com/65535/54004319226_1a94812cc6_o.png)
-
-#### Detalle del Héroe (sin transformaciones):
-![Detalle Héroe Sin Transformaciones](https://live.staticflickr.com/65535/54004644679_4eccab7088_o.png)
-
-#### Detalle del Héroe (con botón de transformaciones):
-![Detalle Héroe Con Transformaciones](https://live.staticflickr.com/65535/54004319811_bbbb8419d6_o.png)
-
-#### Transformaciones del Héroe:
-![Transformaciones](https://live.staticflickr.com/65535/54004644759_966521638f_o.png)
+<div style="display: flex; flex-direction: row;">
+  <img src="https://live.staticflickr.com/65535/54004644084_b80717f34f_o.png" width="200" />
+  <img src="https://live.staticflickr.com/65535/54004319226_1a94812cc6_o.png" width="200" />
+  <img src="https://live.staticflickr.com/65535/54004644679_4eccab7088_o.png" width="200" />
+  <img src="https://live.staticflickr.com/65535/54004319811_bbbb8419d6_o.png" width="200" />
+  <img src="https://live.staticflickr.com/65535/54004644759_966521638f_o.png" width="200" />
+</div>
 
 ### Estructura del proyecto:
 - **Modelo**: Contiene las estructuras de datos de `Hero` y `Transformation`.
