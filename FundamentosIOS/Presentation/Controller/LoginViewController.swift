@@ -27,7 +27,7 @@ final class LoginViewController: UIViewController {
     // MARK: - Actions
     @IBAction func loginButton(_ sender: Any) {
         guard let errorMessage = validateFields() else {
-            login()
+            loginProcess()
             return
         }
         showAlert(message: errorMessage)
@@ -65,56 +65,30 @@ extension LoginViewController {
     }
 }
 
-// MARK: - Networking: Login Process
+// MARK: - Networking
 extension LoginViewController {
     
-    private func login() {
+    private func loginProcess() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
-        guard let url = URL(string: "https://dragonball.keepcoding.education/api/auth/login") else {
-            showAlert(message: "Invalid URL")
-            return
-        }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        
-        let loginString = "\(email):\(password)"
-        guard let loginData = loginString.data(using: .utf8) else {
-            showAlert(message: "Error encoding credentials")
-            return
-        }
-        
-        let base64LoginString = loginData.base64EncodedString()
-        request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, response, error in
-            guard let self = self else { return }
-            guard let data = data, error == nil, let httpResponse = response as? HTTPURLResponse else {
-                DispatchQueue.main.async {
-                    self.clearFieldsAndShowError(message: "Login failed. Please try again.")
-                }
-                return
-            }
-            
-            if httpResponse.statusCode == 200, let token = String(data: data, encoding: .utf8) {
-                self.saveTokenAndNavigate(token: token)
-            } else {
-                DispatchQueue.main.async {
-                    self.clearFieldsAndShowError(message: "Incorrect login")
+        NetworkModelLogin.shared.login(email: email, password: password) { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let token):
+                    self?.saveTokenAndNavigate(token: token)
+                case .failure:
+                    self?.clearFieldsAndShowError(message: "Login failed. Please try again.")
                 }
             }
-        }.resume()
+        }
     }
     
     private func saveTokenAndNavigate(token: String) {
         print("Token recibido: \(token)")
         UserDefaults.standard.set(token, forKey: "token")
         
-        DispatchQueue.main.async {
-            let heroesViewController = HeroesTableViewController()
-            self.navigationController?.setViewControllers([heroesViewController], animated: true)
-        }
+        let heroesViewController = HeroesTableViewController()
+        navigationController?.setViewControllers([heroesViewController], animated: true)
     }
 }
 

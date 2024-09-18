@@ -59,7 +59,7 @@ extension HeroesTableViewController {
         dataSource?.apply(snapshot, animatingDifferences: true)
     }
 }
-    
+
 // MARK: - TableView Delegate
 extension HeroesTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -108,56 +108,18 @@ extension HeroesTableViewController {
 extension HeroesTableViewController {
     
     private func fetchHeroes() {
-        guard let request = createHeroesRequest() else {
-            print("No se pudo crear el request")
-            return
-        }
-        
-        URLSession.shared.dataTask(with: request) { [weak self] data, _, error in
+        NetworkModelHeroes.shared.fetchHeroes { [weak self] result in
             guard let self = self else { return }
             
-            if let error = error {
-                print("Error en la petición: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let data = data else {
-                print("No se recibieron datos")
-                return
-            }
-            
-            do {
-                let heroes = try JSONDecoder().decode([Hero].self, from: data)
+            switch result {
+            case .success(let heroes):
                 DispatchQueue.main.async {
                     self.heroes = heroes
                     self.applyInitialSnapshot()
                 }
-            } catch {
-                print("Error al decodificar los datos: \(error.localizedDescription)")
+            case .failure(let error):
+                print("Error fetching heroes: \(error)")
             }
-        }.resume()
-    }
-    
-    // Request
-    private func createHeroesRequest() -> URLRequest? {
-        guard let url = URL(string: "https://dragonball.keepcoding.education/api/heros/all") else {
-            print("Invalid URL")
-            return nil
         }
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = "POST"
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        
-        guard let token = UserDefaults.standard.string(forKey: "token") else {
-            print("Token no disponible")
-            return nil
-        }
-        
-        request.setValue("Bearer \(token)", forHTTPHeaderField: "Authorization")
-        let body: [String: Any] = ["name": ""]
-        request.httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        
-        return request
     }
 }

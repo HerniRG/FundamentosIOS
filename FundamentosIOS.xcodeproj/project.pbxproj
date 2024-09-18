@@ -12,6 +12,10 @@
 		6638F7192C99CCE6004DB584 /* TransformationTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6638F7162C99CCE6004DB584 /* TransformationTableViewController.swift */; };
 		6638F71C2C99D1C8004DB584 /* TransformationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6638F71B2C99D1C8004DB584 /* TransformationTableViewCell.xib */; };
 		6638F71D2C99D1C8004DB584 /* TransformationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6638F71A2C99D1C8004DB584 /* TransformationTableViewCell.swift */; };
+		663AD3912C9B1351001A5D9C /* APIClientLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AD3902C9B1351001A5D9C /* APIClientLogin.swift */; };
+		663AD3932C9B138C001A5D9C /* NetworkModelLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AD3922C9B138C001A5D9C /* NetworkModelLogin.swift */; };
+		663AD3952C9B19B4001A5D9C /* APIClientHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AD3942C9B19B4001A5D9C /* APIClientHeroes.swift */; };
+		663AD3972C9B19E4001A5D9C /* NetworkModelHeroes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 663AD3962C9B19E4001A5D9C /* NetworkModelHeroes.swift */; };
 		66CDAA842C944044006F309D /* HeroesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDAA822C944044006F309D /* HeroesTableViewController.swift */; };
 		66CDAA852C944044006F309D /* HeroesTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CDAA832C944044006F309D /* HeroesTableViewController.xib */; };
 		66CDAA872C944E97006F309D /* HeroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDAA862C944E97006F309D /* HeroModel.swift */; };
@@ -20,6 +24,8 @@
 		66CDAA8E2C94822C006F309D /* UIImageView+Remote.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CDAA8D2C94822C006F309D /* UIImageView+Remote.swift */; };
 		66CF9CC02C986F2F00705665 /* HeroDetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 66CF9CBF2C986F2F00705665 /* HeroDetailsViewController.xib */; };
 		66CF9CC12C986F2F00705665 /* HeroDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66CF9CBE2C986F2F00705665 /* HeroDetailsViewController.swift */; };
+		66F1C24E2C9B1FC4003FEA28 /* APIClientTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F1C24D2C9B1FC4003FEA28 /* APIClientTransformations.swift */; };
+		66F1C2502C9B2074003FEA28 /* NetworkModelTransformations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F1C24F2C9B2074003FEA28 /* NetworkModelTransformations.swift */; };
 		66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5942C921F61007DFA87 /* AppDelegate.swift */; };
 		66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66F8F5962C921F61007DFA87 /* SceneDelegate.swift */; };
 		66F8F59E2C921F62007DFA87 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66F8F59D2C921F62007DFA87 /* Assets.xcassets */; };
@@ -34,6 +40,10 @@
 		6638F7172C99CCE6004DB584 /* TransformationTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationTableViewController.xib; sourceTree = "<group>"; };
 		6638F71A2C99D1C8004DB584 /* TransformationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationTableViewCell.swift; sourceTree = "<group>"; };
 		6638F71B2C99D1C8004DB584 /* TransformationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationTableViewCell.xib; sourceTree = "<group>"; };
+		663AD3902C9B1351001A5D9C /* APIClientLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientLogin.swift; sourceTree = "<group>"; };
+		663AD3922C9B138C001A5D9C /* NetworkModelLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelLogin.swift; sourceTree = "<group>"; };
+		663AD3942C9B19B4001A5D9C /* APIClientHeroes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientHeroes.swift; sourceTree = "<group>"; };
+		663AD3962C9B19E4001A5D9C /* NetworkModelHeroes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelHeroes.swift; sourceTree = "<group>"; };
 		66CDAA822C944044006F309D /* HeroesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroesTableViewController.swift; sourceTree = "<group>"; };
 		66CDAA832C944044006F309D /* HeroesTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroesTableViewController.xib; sourceTree = "<group>"; };
 		66CDAA862C944E97006F309D /* HeroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroModel.swift; sourceTree = "<group>"; };
@@ -42,6 +52,8 @@
 		66CDAA8D2C94822C006F309D /* UIImageView+Remote.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView+Remote.swift"; sourceTree = "<group>"; };
 		66CF9CBE2C986F2F00705665 /* HeroDetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeroDetailsViewController.swift; sourceTree = "<group>"; };
 		66CF9CBF2C986F2F00705665 /* HeroDetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HeroDetailsViewController.xib; sourceTree = "<group>"; };
+		66F1C24D2C9B1FC4003FEA28 /* APIClientTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClientTransformations.swift; sourceTree = "<group>"; };
+		66F1C24F2C9B2074003FEA28 /* NetworkModelTransformations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModelTransformations.swift; sourceTree = "<group>"; };
 		66F8F5912C921F61007DFA87 /* FundamentosIOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FundamentosIOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66F8F5942C921F61007DFA87 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66F8F5962C921F61007DFA87 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -107,6 +119,12 @@
 			children = (
 				66CDAA862C944E97006F309D /* HeroModel.swift */,
 				6638F7142C99C924004DB584 /* TransformationModel.swift */,
+				663AD3902C9B1351001A5D9C /* APIClientLogin.swift */,
+				663AD3922C9B138C001A5D9C /* NetworkModelLogin.swift */,
+				663AD3942C9B19B4001A5D9C /* APIClientHeroes.swift */,
+				663AD3962C9B19E4001A5D9C /* NetworkModelHeroes.swift */,
+				66F1C24D2C9B1FC4003FEA28 /* APIClientTransformations.swift */,
+				66F1C24F2C9B2074003FEA28 /* NetworkModelTransformations.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -223,10 +241,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				6638F7192C99CCE6004DB584 /* TransformationTableViewController.swift in Sources */,
+				663AD3912C9B1351001A5D9C /* APIClientLogin.swift in Sources */,
 				66F8F5AE2C922076007DFA87 /* LoginViewController.swift in Sources */,
+				663AD3932C9B138C001A5D9C /* NetworkModelLogin.swift in Sources */,
 				66CDAA8E2C94822C006F309D /* UIImageView+Remote.swift in Sources */,
 				6638F7152C99C924004DB584 /* TransformationModel.swift in Sources */,
 				66CDAA8A2C9478BE006F309D /* HeroesTableViewCell.swift in Sources */,
+				663AD3952C9B19B4001A5D9C /* APIClientHeroes.swift in Sources */,
+				66F1C24E2C9B1FC4003FEA28 /* APIClientTransformations.swift in Sources */,
+				66F1C2502C9B2074003FEA28 /* NetworkModelTransformations.swift in Sources */,
+				663AD3972C9B19E4001A5D9C /* NetworkModelHeroes.swift in Sources */,
 				66F8F5952C921F61007DFA87 /* AppDelegate.swift in Sources */,
 				66F8F5972C921F61007DFA87 /* SceneDelegate.swift in Sources */,
 				6638F71D2C99D1C8004DB584 /* TransformationTableViewCell.swift in Sources */,
