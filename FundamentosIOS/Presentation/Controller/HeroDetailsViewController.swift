@@ -17,6 +17,8 @@ class HeroDetailsViewController: UIViewController {
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var descriptionHeroLabel: UILabel!
     @IBOutlet weak var transformacionesButton: UIButton!
+    @IBOutlet weak var transformacionesButtonHeightConstraint: NSLayoutConstraint!
+    @IBOutlet weak var transformacionesButtonBottomConstraint: NSLayoutConstraint!
     
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -58,6 +60,8 @@ extension HeroDetailsViewController {
         heroImage.layer.cornerRadius = 10
         heroImage.setImage(from: hero.photo)
         transformacionesButton.isHidden = true
+        transformacionesButtonHeightConstraint.constant = 0
+        transformacionesButtonBottomConstraint.constant = 0
     }
 }
 
@@ -90,8 +94,15 @@ extension HeroDetailsViewController {
                     if !transformations.isEmpty {
                         self.transformations = transformations
                         self.transformacionesButton.isHidden = false
+                        self.transformacionesButtonHeightConstraint.constant = 50
+                        self.transformacionesButtonBottomConstraint.constant = 16
                     } else {
                         self.transformacionesButton.isHidden = true
+                        self.transformacionesButtonHeightConstraint.constant = 0
+                        self.transformacionesButtonBottomConstraint.constant = 0
+                    }
+                    UIView.animate(withDuration: 0.3) {
+                        self.view.layoutIfNeeded()
                     }
                 }
             } catch {

@@ -13,6 +13,8 @@
                 <outlet property="descriptionHeroLabel" destination="zyS-DH-2FK" id="aZJ-ut-4jn"/>
                 <outlet property="heroImage" destination="cWA-sx-PCx" id="ALT-sn-83z"/>
                 <outlet property="transformacionesButton" destination="uaG-bB-EDc" id="MOM-sF-pJ3"/>
+                <outlet property="transformacionesButtonBottomConstraint" destination="ed8-RB-WNa" id="Rpp-9x-4S4"/>
+                <outlet property="transformacionesButtonHeightConstraint" destination="wPc-SZ-XMC" id="foP-ZI-nal"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
