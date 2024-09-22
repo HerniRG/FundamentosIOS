@@ -7,7 +7,6 @@
 
 import Foundation
 
-// Modelo para una transformación
 struct Transformation: Codable, Hashable {
     let id: String
     let name: String

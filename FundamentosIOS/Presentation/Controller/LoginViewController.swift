@@ -71,33 +71,24 @@ extension LoginViewController {
     private func loginProcess() {
         guard let email = emailTextField.text, let password = passwordTextField.text else { return }
         
-        NetworkModelLogin.shared.login(email: email, password: password) { [weak self] result in
+        NetworkModel.shared.login(email: email, password: password) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let token):
                     self?.saveTokenAndNavigate(token: token)
-                case .failure:
-                    self?.clearFieldsAndShowError(message: "Login failed. Please try again.")
+                case .failure(let error):
+                    print("Login failed with error: \(error)")
+                    self?.passwordTextField.text = ""
+                    self?.showAlert(message: "Login failed")
                 }
             }
         }
     }
     
     private func saveTokenAndNavigate(token: String) {
-        print("Token recibido: \(token)")
-        UserDefaults.standard.set(token, forKey: "token")
+        LocalDataModel.save(value: token)
         
         let heroesViewController = HeroesTableViewController()
         navigationController?.setViewControllers([heroesViewController], animated: true)
-    }
-}
-
-// MARK: - Helpers
-extension LoginViewController {
-    
-    private func clearFieldsAndShowError(message: String) {
-        emailTextField.text = ""
-        passwordTextField.text = ""
-        showAlert(message: message)
     }
 }

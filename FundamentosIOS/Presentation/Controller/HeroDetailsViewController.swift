@@ -59,9 +59,19 @@ extension HeroDetailsViewController {
         heroImage.layer.borderWidth = 2
         heroImage.layer.cornerRadius = 10
         heroImage.setImage(from: hero.photo)
-        transformacionesButton.isHidden = true
-        transformacionesButtonHeightConstraint.constant = 0
-        transformacionesButtonBottomConstraint.constant = 0
+        
+        updateTransformationsButton(isVisible: false)
+    }
+
+    // Función que actualiza el botón de transformaciones
+    private func updateTransformationsButton(isVisible: Bool) {
+        transformacionesButton.isHidden = !isVisible
+        transformacionesButtonHeightConstraint.constant = isVisible ? 50 : 0
+        transformacionesButtonBottomConstraint.constant = isVisible ? 16 : 0
+        
+        UIView.animate(withDuration: 0.3) {
+            self.view.layoutIfNeeded()
+        }
     }
 }
 
@@ -74,25 +84,16 @@ extension HeroDetailsViewController {
             return
         }
         
-        NetworkModelTransformations.shared.fetchTransformations(heroId: hero.id) { [weak self] result in
+        NetworkModel.shared.fetchTransformations(heroId: hero.id) { [weak self] result in
             DispatchQueue.main.async {
                 switch result {
                 case .success(let transformations):
-                    if !transformations.isEmpty {
-                        self?.transformations = transformations
-                        self?.transformacionesButton.isHidden = false
-                        self?.transformacionesButtonHeightConstraint.constant = 50
-                        self?.transformacionesButtonBottomConstraint.constant = 16
-                    } else {
-                        self?.transformacionesButton.isHidden = true
-                        self?.transformacionesButtonHeightConstraint.constant = 0
-                        self?.transformacionesButtonBottomConstraint.constant = 0
-                    }
-                    UIView.animate(withDuration: 0.3) {
-                        self?.view.layoutIfNeeded()
-                    }
-                case .failure(let error):
-                    print("Error al obtener las transformaciones: \(error)")
+                    self?.transformations = transformations
+                    self?.updateTransformationsButton(isVisible: !transformations.isEmpty)
+                    
+                case .failure:
+                    print("Failed to fetch transformations")
+                    self?.updateTransformationsButton(isVisible: false)
                 }
             }
         }

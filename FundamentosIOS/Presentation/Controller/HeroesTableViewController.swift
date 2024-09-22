@@ -17,6 +17,13 @@ final class HeroesTableViewController: UITableViewController {
     private var heroes: [Hero] = []
     private var dataSource: DataSource?
     
+    // MARK: - Components
+    private var activityIndicator: UIActivityIndicatorView {
+        let spinner = UIActivityIndicatorView(style: .large)
+        spinner.startAnimating()
+        return spinner
+    }
+    
     // MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -25,6 +32,7 @@ final class HeroesTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.backgroundView = activityIndicator
         configureNavigationBar()
         configureTableView()
         configureDataSource()
@@ -98,7 +106,7 @@ extension HeroesTableViewController {
     }
     
     @objc private func logout() {
-        UserDefaults.standard.removeObject(forKey: "authToken")
+        LocalDataModel.delete()
         let loginViewController = LoginViewController()
         navigationController?.setViewControllers([loginViewController], animated: true)
     }
@@ -108,17 +116,15 @@ extension HeroesTableViewController {
 extension HeroesTableViewController {
     
     private func fetchHeroes() {
-        NetworkModelHeroes.shared.fetchHeroes { [weak self] result in
-            guard let self = self else { return }
-            
-            switch result {
-            case .success(let heroes):
-                DispatchQueue.main.async {
-                    self.heroes = heroes
-                    self.applyInitialSnapshot()
+        NetworkModel.shared.fetchHeroes { [weak self] result in
+            DispatchQueue.main.async {
+                switch result {
+                case .success(let heroes):
+                    self?.heroes = heroes
+                    self?.applyInitialSnapshot()
+                case .failure:
+                    print("Failed to fetch heroes")
                 }
-            case .failure(let error):
-                print("Error fetching heroes: \(error)")
             }
         }
     }
