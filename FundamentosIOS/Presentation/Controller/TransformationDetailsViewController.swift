@@ -33,7 +33,6 @@ extension TransformationDetailsViewController {
     private func configureNavigationBar() {
         title = transformation?.name
         navigationController?.navigationBar.prefersLargeTitles = true
-        
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
         appearance.backgroundColor = UIColor.systemIndigo

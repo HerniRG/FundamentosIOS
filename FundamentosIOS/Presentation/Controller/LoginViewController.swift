@@ -38,13 +38,13 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func configureUI() {
-        emailTextField.placeholder = "Enter your email"
-        passwordTextField.placeholder = "Enter your password"
+        emailTextField.placeholder = "Introduce tu correo electrónico"
+        passwordTextField.placeholder = "Introduce tu contraseña"
     }
     
     private func showAlert(message: String) {
         let alert = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        alert.addAction(UIAlertAction(title: "Aceptar", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
     }
 }
@@ -56,10 +56,10 @@ extension LoginViewController {
         var errorMessage: [String] = []
         
         if let email = emailTextField.text, email.isEmpty {
-            errorMessage.append("Email is empty")
+            errorMessage.append("El correo electrónico está vacío")
         }
         if let password = passwordTextField.text, password.isEmpty {
-            errorMessage.append("Password is empty")
+            errorMessage.append("La contraseña está vacía")
         }
         return errorMessage.isEmpty ? nil : errorMessage.joined(separator: "\n")
     }
@@ -79,7 +79,7 @@ extension LoginViewController {
                 case .failure(let error):
                     print("Login failed with error: \(error)")
                     self?.passwordTextField.text = ""
-                    self?.showAlert(message: "Login failed")
+                    self?.showAlert(message: "El inicio de sesión ha fallado")
                 }
             }
         }
