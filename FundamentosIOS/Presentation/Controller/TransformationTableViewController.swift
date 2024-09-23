@@ -66,6 +66,14 @@ extension TransformationTableViewController {
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 200
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+        guard let selectedTransformation = dataSource?.itemIdentifier(for: indexPath) else { return }
+        let transformationDetailsViewController = TransformationDetailsViewController()
+        transformationDetailsViewController.transformation = selectedTransformation
+        navigationController?.pushViewController(transformationDetailsViewController, animated: true)
+    }
 }
 
 // MARK: - Navigation Bar
