@@ -54,7 +54,7 @@ final class NetworkModel {
         request.setValue("Basic \(base64LoginString)", forHTTPHeaderField: "Authorization")
         
         // Realizar la solicitud de login con el cliente de API
-        client.request(String.self, from: request, completion: completion)
+        client.jwt(from: request, completion: completion)
     }
     
     // MARK: - Fetch Heroes

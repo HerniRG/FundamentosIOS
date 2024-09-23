@@ -7,6 +7,7 @@
 
 import Foundation
 
+// Definimos los errores posibles
 enum APIError: Error, Equatable {
     case noData
     case decodingFailed
@@ -14,8 +15,17 @@ enum APIError: Error, Equatable {
     case unknown
 }
 
+// Definimos el protocolo para el APIClient
 protocol APIClientProtocol {
     var session: URLSession { get }
+    
+    // Método para hacer login y obtener el token JWT
+    func jwt(
+        from request: URLRequest,
+        completion: @escaping (Result<String, APIError>) -> Void
+    )
+    
+    // Método genérico para hacer otras solicitudes
     func request<T: Codable>(
         _ type: T.Type,
         from request: URLRequest,
@@ -23,6 +33,7 @@ protocol APIClientProtocol {
     )
 }
 
+// Implementación del APIClient
 struct APIClient: APIClientProtocol {
     let session: URLSession
 
@@ -30,6 +41,50 @@ struct APIClient: APIClientProtocol {
         self.session = session
     }
 
+    // Método específico para obtener el token JWT
+    func jwt(
+        from request: URLRequest,
+        completion: @escaping (Result<String, APIError>) -> Void
+    ) {
+        let task = session.dataTask(with: request) { data, response, error in
+            let result: Result<String, APIError>
+            
+            defer {
+                completion(result)
+            }
+            
+            // Si ocurre un error en la solicitud
+            if let error = error {
+                print("Error en la petición JWT: \(error.localizedDescription)")
+                result = .failure(.unknown)
+                return
+            }
+            
+            // Verificamos que hay datos en la respuesta
+            guard let data = data else {
+                result = .failure(.noData)
+                return
+            }
+            
+            // Comprobamos el código de estado HTTP
+            let statusCode = (response as? HTTPURLResponse)?.statusCode
+            guard statusCode == 200 else {
+                result = .failure(.statusCode(code: statusCode))
+                return
+            }
+            
+            // Intentamos obtener el token JWT como String
+            if let token = String(data: data, encoding: .utf8) {
+                result = .success(token)
+            } else {
+                result = .failure(.decodingFailed)
+            }
+        }
+        
+        task.resume()
+    }
+
+    // Método genérico para hacer peticiones que no sean de autenticación
     func request<T: Codable>(
         _ type: T.Type,
         from request: URLRequest,
@@ -42,7 +97,8 @@ struct APIClient: APIClientProtocol {
                 completion(result)
             }
             
-            if error != nil {
+            if let error = error {
+                print("Error en la petición: \(error.localizedDescription)")
                 result = .failure(.unknown)
                 return
             }
@@ -58,13 +114,7 @@ struct APIClient: APIClientProtocol {
                 return
             }
             
-            // Si esperamos un String como en el caso del token, devolvemos el String sin decodificar
-            if T.self == String.self, let token = String(data: data, encoding: .utf8) as? T {
-                result = .success(token)
-                return
-            }
-            
-            // Intentar decodificar el objeto esperado en el resto de casos
+            // Intentamos decodificar el objeto esperado
             do {
                 let decodedObject = try JSONDecoder().decode(type.self, from: data)
                 result = .success(decodedObject)
@@ -77,4 +127,3 @@ struct APIClient: APIClientProtocol {
         task.resume()
     }
 }
-
