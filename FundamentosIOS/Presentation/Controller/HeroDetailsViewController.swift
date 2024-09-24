@@ -51,6 +51,11 @@ extension HeroDetailsViewController {
         navigationController?.navigationBar.tintColor = .black
         navigationController?.navigationBar.standardAppearance = appearance
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        
+        let favoriteImage = UIImage(systemName: hero?.favorite == true ? "star.fill" : "star")
+        let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: nil, action: nil)
+        favoriteButton.tintColor = UIColor.yellow
+        navigationItem.rightBarButtonItem = favoriteButton
     }
     
     private func configureHeroDetails() {
