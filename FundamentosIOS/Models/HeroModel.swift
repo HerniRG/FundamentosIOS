@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 struct Hero: Codable, Hashable {
     let id: String
     let name: String

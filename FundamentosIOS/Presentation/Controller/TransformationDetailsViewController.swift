@@ -9,17 +9,17 @@ import UIKit
 
 class TransformationDetailsViewController: UIViewController {
 
-    // MARK: - Properties
+// MARK: - Properties
     var transformation: Transformation?
     
-    // MARK: - IBOutlets
+// MARK: - IBOutlets
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var heroDescriptionLabel: UILabel!
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
+        configureNavigationBar(title: transformation?.name, backgroundColor: UIColor.systemIndigo)
         configureHeroDetails()
         UIView.animate(withDuration: 0.3) {
             self.view.layoutIfNeeded()
@@ -29,18 +29,6 @@ class TransformationDetailsViewController: UIViewController {
 
 // MARK: - UI Configuration
 extension TransformationDetailsViewController {
-    
-    private func configureNavigationBar() {
-        title = transformation?.name
-        navigationController?.navigationBar.prefersLargeTitles = true
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.systemIndigo
-        appearance.shadowColor = UIColor.black
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
-    }
     
     private func configureHeroDetails() {
         guard let hero = transformation else { return }

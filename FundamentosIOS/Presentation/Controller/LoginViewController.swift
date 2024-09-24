@@ -9,11 +9,11 @@ import UIKit
 
 final class LoginViewController: UIViewController {
     
-    // MARK: - IBOutlets
+// MARK: - IBOutlets
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureUI()
@@ -24,7 +24,7 @@ final class LoginViewController: UIViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
-    // MARK: - Actions
+// MARK: - Actions
     @IBAction func loginButton(_ sender: Any) {
         guard let errorMessage = validateFields() else {
             loginProcess()
@@ -38,8 +38,8 @@ final class LoginViewController: UIViewController {
 extension LoginViewController {
     
     private func configureUI() {
-        emailTextField.placeholder = "Introduce tu correo electrónico"
-        passwordTextField.placeholder = "Introduce tu contraseña"
+        emailTextField.placeholder = "Correo electrónico"
+        passwordTextField.placeholder = "Contraseña"
     }
     
     private func showAlert(message: String) {
@@ -84,6 +84,10 @@ extension LoginViewController {
             }
         }
     }
+}
+
+// MARK: - Navigation
+extension LoginViewController {
     
     private func saveTokenAndNavigate(token: String) {
         LocalDataModel.save(value: token)

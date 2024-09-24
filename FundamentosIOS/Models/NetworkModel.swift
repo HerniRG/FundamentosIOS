@@ -25,7 +25,7 @@ final class NetworkModel {
         self.client = client
     }
     
-    // MARK: - Login
+// MARK: - Login
     func login(
         email: String,
         password: String,
@@ -57,7 +57,7 @@ final class NetworkModel {
         client.jwt(from: request, completion: completion)
     }
     
-    // MARK: - Fetch Heroes
+// MARK: - Fetch Heroes
     func fetchHeroes(completion: @escaping (Result<[Hero], APIError>) -> Void) {
         // Crear la URL para obtener héroes
         var components = baseComponents
@@ -89,7 +89,7 @@ final class NetworkModel {
         client.request([Hero].self, from: request, completion: completion)
     }
     
-    // MARK: - Fetch Transformations
+// MARK: - Fetch Transformations
     func fetchTransformations(
         heroId: String,
         completion: @escaping (Result<[Transformation], APIError>) -> Void

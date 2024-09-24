@@ -9,22 +9,22 @@ import UIKit
 
 final class HeroesTableViewController: UITableViewController {
     
-    // MARK: - Table View DataSource
+// MARK: - Table View DataSource
     typealias DataSource = UITableViewDiffableDataSource<Int, Hero>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Hero>
     
-    // MARK: - Model
+// MARK: - Model
     private var heroes: [Hero] = []
     private var dataSource: DataSource?
     
-    // MARK: - Components
+// MARK: - Components
     private var activityIndicator: UIActivityIndicatorView {
         let spinner = UIActivityIndicatorView(style: .large)
         spinner.startAnimating()
         return spinner
     }
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -59,7 +59,7 @@ extension HeroesTableViewController {
         }
     }
     
-    // MARK: - Apply Initial Snapshot
+// MARK: - Apply Initial Snapshot
     private func applyInitialSnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
@@ -87,16 +87,7 @@ extension HeroesTableViewController {
 extension HeroesTableViewController {
     
     private func configureNavigationBar() {
-        title = "Dragon Ball"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.systemIndigo
-        appearance.shadowColor = UIColor.black
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        configureNavigationBar(title: "Dragon Ball", backgroundColor: UIColor.systemIndigo)
         
         let logoutIcon = UIImage(systemName: "arrow.uturn.left.circle")
         let logoutButton = UIBarButtonItem(image: logoutIcon, style: .plain, target: self, action: #selector(logout))
@@ -104,7 +95,7 @@ extension HeroesTableViewController {
         
         navigationItem.rightBarButtonItem = logoutButton
     }
-    
+
     @objc private func logout() {
         LocalDataModel.delete()
         let loginViewController = LoginViewController()

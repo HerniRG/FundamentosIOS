@@ -9,18 +9,18 @@ import UIKit
 
 class HeroDetailsViewController: UIViewController {
     
-    // MARK: - Properties
+// MARK: - Properties
     var hero: Hero?
     private var transformations: [Transformation] = []
     
-    // MARK: - IBOutlets
+// MARK: - IBOutlets
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var descriptionHeroLabel: UILabel!
     @IBOutlet weak var transformacionesButton: UIButton!
     @IBOutlet weak var transformacionesButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var transformacionesButtonBottomConstraint: NSLayoutConstraint!
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -28,7 +28,7 @@ class HeroDetailsViewController: UIViewController {
         fetchTransformations()
     }
     
-    // MARK: - Actions
+// MARK: - Actions
     @IBAction func transformacionesButton(_ sender: Any) {
         let transformationTableViewController = TransformationTableViewController()
         transformationTableViewController.transformations = transformations
@@ -41,16 +41,7 @@ class HeroDetailsViewController: UIViewController {
 extension HeroDetailsViewController {
     
     private func configureNavigationBar() {
-        title = hero?.name
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.systemIndigo
-        appearance.shadowColor = UIColor.black
-        navigationController?.navigationBar.tintColor = .black
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        configureNavigationBar(title: hero?.name, backgroundColor: UIColor.systemIndigo)
         
         let favoriteImage = UIImage(systemName: hero?.favorite == true ? "star.fill" : "star")
         let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(toggleStarIcon))
@@ -68,7 +59,6 @@ extension HeroDetailsViewController {
         updateTransformationsButton(isVisible: false)
     }
 
-    // Función que actualiza el botón de transformaciones
     private func updateTransformationsButton(isVisible: Bool) {
         transformacionesButton.isHidden = !isVisible
         transformacionesButtonHeightConstraint.constant = isVisible ? 50 : 0
@@ -80,7 +70,6 @@ extension HeroDetailsViewController {
     }
     
     @objc private func toggleStarIcon() {
-        // Cambia el icono de la estrella entre "star.fill" y "star"
         let isFavorite = navigationItem.rightBarButtonItem?.image == UIImage(systemName: "star.fill")
         let newImage = UIImage(systemName: isFavorite ? "star" : "star.fill")
         navigationItem.rightBarButtonItem?.image = newImage

@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct LocalDataModel {
     private enum Constants {
         static let valueKey = "token"

@@ -9,15 +9,15 @@ import UIKit
 
 class TransformationTableViewController: UITableViewController {
     
-    // MARK: - Table View DataSource
+// MARK: - Table View DataSource
     typealias DataSource = UITableViewDiffableDataSource<Int, Transformation>
     typealias Snapshot = NSDiffableDataSourceSnapshot<Int, Transformation>
     
-    // MARK: - Model
+// MARK: - Model
     var transformations: [Transformation] = []
     private var dataSource: DataSource?
     
-    // MARK: - Lifecycle
+// MARK: - Lifecycle
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: animated)
@@ -25,7 +25,7 @@ class TransformationTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureNavigationBar()
+        configureNavigationBar(title: "Transformaciones", backgroundColor: UIColor.systemIndigo)
         configureTableView()
         configureDataSource()
         applyInitialSnapshot()
@@ -52,7 +52,7 @@ extension TransformationTableViewController {
         }
     }
     
-    // MARK: - Apply Initial Snapshot
+// MARK: - Apply Initial Snapshot
     private func applyInitialSnapshot() {
         var snapshot = Snapshot()
         snapshot.appendSections([0])
@@ -73,22 +73,5 @@ extension TransformationTableViewController {
         let transformationDetailsViewController = TransformationDetailsViewController()
         transformationDetailsViewController.transformation = selectedTransformation
         navigationController?.pushViewController(transformationDetailsViewController, animated: true)
-    }
-}
-
-// MARK: - Navigation Bar
-extension TransformationTableViewController {
-    
-    private func configureNavigationBar() {
-        title = "Transformaciones"
-        navigationController?.navigationBar.prefersLargeTitles = true
-        
-        let appearance = UINavigationBarAppearance()
-        appearance.configureWithOpaqueBackground()
-        appearance.backgroundColor = UIColor.systemIndigo
-        appearance.shadowColor = UIColor.black
-        
-        navigationController?.navigationBar.standardAppearance = appearance
-        navigationController?.navigationBar.scrollEdgeAppearance = appearance
     }
 }
