@@ -53,7 +53,7 @@ extension HeroDetailsViewController {
         navigationController?.navigationBar.scrollEdgeAppearance = appearance
         
         let favoriteImage = UIImage(systemName: hero?.favorite == true ? "star.fill" : "star")
-        let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: nil, action: nil)
+        let favoriteButton = UIBarButtonItem(image: favoriteImage, style: .plain, target: self, action: #selector(toggleStarIcon))
         favoriteButton.tintColor = UIColor.yellow
         navigationItem.rightBarButtonItem = favoriteButton
     }
@@ -78,6 +78,14 @@ extension HeroDetailsViewController {
             self.view.layoutIfNeeded()
         }
     }
+    
+    @objc private func toggleStarIcon() {
+        // Cambia el icono de la estrella entre "star.fill" y "star"
+        let isFavorite = navigationItem.rightBarButtonItem?.image == UIImage(systemName: "star.fill")
+        let newImage = UIImage(systemName: isFavorite ? "star" : "star.fill")
+        navigationItem.rightBarButtonItem?.image = newImage
+    }
+
 }
 
 // MARK: - Networking
