@@ -9,18 +9,18 @@ import UIKit
 
 class HeroDetailsViewController: UIViewController {
     
-// MARK: - Properties
+    // MARK: - Properties
     var hero: Hero?
     private var transformations: [Transformation] = []
     
-// MARK: - IBOutlets
+    // MARK: - IBOutlets
     @IBOutlet weak var heroImage: UIImageView!
     @IBOutlet weak var descriptionHeroLabel: UILabel!
     @IBOutlet weak var transformacionesButton: UIButton!
     @IBOutlet weak var transformacionesButtonHeightConstraint: NSLayoutConstraint!
     @IBOutlet weak var transformacionesButtonBottomConstraint: NSLayoutConstraint!
     
-// MARK: - Lifecycle
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         configureNavigationBar()
@@ -28,10 +28,16 @@ class HeroDetailsViewController: UIViewController {
         fetchTransformations()
     }
     
-// MARK: - Actions
+    // MARK: - Actions
     @IBAction func transformacionesButton(_ sender: Any) {
+        // Ordena las transformaciones por nombre de forma numérica
+        let sortedTransformations = transformations.sorted {
+            $0.name.compare($1.name, options: .numeric) == .orderedAscending
+        }
+        
         let transformationTableViewController = TransformationTableViewController()
-        transformationTableViewController.transformations = transformations
+        transformationTableViewController.transformations = sortedTransformations
+        
         navigationController?.pushViewController(transformationTableViewController, animated: true)
     }
     
@@ -58,7 +64,7 @@ extension HeroDetailsViewController {
         
         updateTransformationsButton(isVisible: false)
     }
-
+    
     private func updateTransformationsButton(isVisible: Bool) {
         transformacionesButton.isHidden = !isVisible
         transformacionesButtonHeightConstraint.constant = isVisible ? 50 : 0
@@ -74,7 +80,7 @@ extension HeroDetailsViewController {
         let newImage = UIImage(systemName: isFavorite ? "star" : "star.fill")
         navigationItem.rightBarButtonItem?.image = newImage
     }
-
+    
 }
 
 // MARK: - Networking
