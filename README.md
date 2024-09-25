@@ -4,12 +4,10 @@
 
 Este proyecto es una aplicación que consume una API de Dragon Ball creada por KeepCoding. La aplicación sigue el patrón de arquitectura **MVC (Model-View-Controller)** y está construida en **Swift** utilizando **UIKit**.
 
-### Funcionalidades principales:
-- Autenticación mediante login.
-- Visualización de una lista de héroes de Dragon Ball.
-- Detalle de cada héroe, mostrando información y transformaciones (si están disponibles).
-- Detalle de cada transformación, mostrando información.
-- Navegación entre pantallas mediante UINavigationController.
+### Video demostración:
+<a href="https://youtu.be/DSbKwaNBHBU" title="Video de la aplicación">
+  <img src="https://img.youtube.com/vi/DSbKwaNBHBU/0.jpg" width="200" alt="Simulator Screen Recording" />
+</a>
 
 ### Capturas de pantalla:
 
@@ -22,9 +20,9 @@ Este proyecto es una aplicación que consume una API de Dragon Ball creada por K
 </div>
 
 ### Estructura del proyecto:
-- **Modelo**: Contiene las estructuras de datos de Hero y Transformation.
+- **Modelo**: Contiene las estructuras de datos de `Hero` y `Transformation`.
 - **Vista**: Pantallas en **UIKit** con **XIBs** para las vistas personalizadas.
-- **Controlador**: Controladores como LoginViewController, HeroesTableViewController, HeroDetailsViewController , TransformationTableViewController y TransformationDetailsViewController para gestionar la lógica de la aplicación y la navegación.
+- **Controlador**: Controladores como `LoginViewController`, `HeroesTableViewController`, `HeroDetailsViewController`, `TransformationTableViewController` y `TransformationDetailsViewController` para gestionar la lógica de la aplicación y la navegación.
 
 ### Requisitos:
 - **iOS 14+**
