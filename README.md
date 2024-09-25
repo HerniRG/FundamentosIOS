@@ -9,10 +9,7 @@ Este proyecto es una aplicación que consume una API de Dragon Ball creada por K
 - Visualización de una lista de héroes de Dragon Ball.
 - Detalle de cada héroe, mostrando información y transformaciones (si están disponibles).
 - Detalle de cada transformación, mostrando información.
-- Navegación entre pantallas mediante `UINavigationController`.
-
-### Video demostración:
-[![Video de la aplicación](https://live.staticflickr.com/31337/54021361353_5073e89206_o.jpg)](https://www.flickr.com/photos/197108379@N03/54021361353/in/dateposted-public "Simulator Screen Recording")
+- Navegación entre pantallas mediante UINavigationController.
 
 ### Capturas de pantalla:
 
@@ -25,9 +22,9 @@ Este proyecto es una aplicación que consume una API de Dragon Ball creada por K
 </div>
 
 ### Estructura del proyecto:
-- **Modelo**: Contiene las estructuras de datos de `Hero` y `Transformation`.
+- **Modelo**: Contiene las estructuras de datos de Hero y Transformation.
 - **Vista**: Pantallas en **UIKit** con **XIBs** para las vistas personalizadas.
-- **Controlador**: Controladores como `LoginViewController`, `HeroesTableViewController`, `HeroDetailsViewController`, `TransformationTableViewController` y `TransformationDetailsViewController` para gestionar la lógica de la aplicación y la navegación.
+- **Controlador**: Controladores como LoginViewController, HeroesTableViewController, HeroDetailsViewController , TransformationTableViewController y TransformationDetailsViewController para gestionar la lógica de la aplicación y la navegación.
 
 ### Requisitos:
 - **iOS 14+**
